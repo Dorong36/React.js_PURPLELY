@@ -1,7 +1,6 @@
 // default
-import logo from './logo.svg';
 import './App.css';
-import image7 from './img/7.jpg';
+
 
 // react import
 import React from 'react';
@@ -16,14 +15,16 @@ import styled, {keyframes} from 'styled-components';
 import MainPage from "./component/page/MainPage";
 import PostWritePage from './component/page/PostWritePage';
 import PostViewPage from './component/page/PostViewPage';
+import Login from './component/page/Login';
+import Join from './component/page/Join';
+import Header from './component/HeaderFooter/Header';
+import Footer from './component/HeaderFooter/Footer';
+
+//Scoll to top
+import ScrollToTop from './component/ui/ScrollToTop';
 
 
-const MainTitleText = styled.p`
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-  text-align: center;
-`
+
 
 const gradient = keyframes`
   0% {
@@ -39,10 +40,35 @@ const gradient = keyframes`
 
 const Wrapper = styled.div`
   margin: 0px auto;
-  padding: 70px 30px;
-  background: linear-gradient(-45deg, #7a30ff, #df9bff, #b486b8, #ff87ab);
+  padding: 30px 30px;
+  background: linear-gradient(-45deg, #441A78, #000000, #ffffff);   // 실험용, 나중에 흰색 빼자
   background-size: 400% 400%;
   animation: ${gradient} 15s ease infinite;
+`
+
+// const RoutesWrapper = styled.div`
+//   height: 100vh;
+// `
+
+
+// const Wrapper = styled.div`
+//   margin: 0px auto;    #b3a5cf
+//   padding: 30px;
+//   background: white;
+// `
+
+// const Footer = styled.footer`
+//   background-color: white;
+// `
+
+// const Header = styled.div`
+//   display: grid;
+//   justify-content: center;
+//   background: purple;
+// `
+
+const LogoImg = styled.img`
+  height: 100px;
 `
 
 
@@ -51,14 +77,23 @@ function App(gradient) {
   return (
     <Wrapper gradient>
       <BrowserRouter>
-        <MainTitleText>React 미니 블로그</MainTitleText>
+      <ScrollToTop></ScrollToTop>
+        <Header></Header>
+        <hr></hr>
+        {/* <TitleImg></TitleImg> */}
         <Routes>
           <Route index element={<MainPage/>} />
           <Route path = "post-write" element={<PostWritePage/>} />
           <Route path = "post/:postId" element={<PostViewPage/>} />
+          <Route path = "login" element={<Login/>} />
+          <Route path = "join" element={<Join/>} />
         </Routes>
+        <hr></hr>
+        <Footer></Footer>
       </BrowserRouter>
+      
     </Wrapper>
+    
   );
 }
 

@@ -1,56 +1,80 @@
 import React from "react";
 import styled from "styled-components";
-import image1 from "../../img/1.jpg";
-import image2 from "../../img/2.jpg";
-import image3 from "../../img/3.jpg";
-import image4 from "../../img/4.jpg";
-import image5 from "../../img/5.jpg";
-import image6 from "../../img/6.jpg";
 
-const images = [image1, image2, image3, image4, image5, image6]
 
+
+// const Wrapper = styled.div`
+//     width: calc(100% - 32px);
+//     padding: 16px;
+//     cursor: pointer;
+//     :hover {
+//         transform: scale(1.1);
+//         transition: transform 1s;
+//         filter: brightness(70%);
+//     }
+//     background-image: url(${image3});
+//     background-size: cover;
+//     background-position: center;
+// `;
 
 const Wrapper = styled.div`
-    width: calc(100% - 32px);
-    padding: 16px;
-    // display: flex;
-    // flex-direction: column;
-    // align-items: flex-start;
-    // justify-content: center;
-    // border: 1px solid grey;
-    // border-radius: 8px;
+    border-radius: 8px;
+    padding: 10px;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    justify-content: center;
     cursor: pointer;
+    width: calc(100%-32px);
+
     :hover {
         transform: scale(1.1);
         transition: transform 1s;
-        filter: brightness(70%);
     }
-
-    
-    background-image: url(${image3});
-    background-size: cover;
-    background-position: center;
+    ${({bgcolor}) => {
+        return bgcolor? `background: ${bgcolor}`: "black";
+    }}
 `;
 
+// const Wrapper = styled.div`
+//     border-radius: 8px;
+//     padding: 10px;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: center;
+//     cursor: pointer;
+//     :hover {
+//         transform: scale(1.1);
+//         transition: transform 1s;
+//     }
+//     ${({bgcolor}) => {
+//         return bgcolor? `background: ${bgcolor}`: "black";
+//     }}
+// `;
 
 const TitleText = styled.p`
     color : white;
-    position: relative;
-    font-size: 20px;
+    font-size: 19px;
     font-weight: 500;
+    line-height: 25px;
+    white-space: pre-wrap;
 `;
 
-function getImagePath(){
-    return "../../img/1.jpg"
-}
+const Polaroid = styled.img`
+    padding-top: 7px;
+    width: 350px;
+    height: 175px;
+    object-fit: cover;   // background-size: cover과 같은 기능!!
+`
+
 
 function PostListItem(props) {
 
-    const {post, onClick} = props;
+    const {post, onClick, bgcolor, postImg} = props;
 
     return(
-        <Wrapper onClick={onClick}>
-            {/* <img src={images[post.id]} alt="" /> */}
+        <Wrapper onClick={onClick} bgcolor={bgcolor}>
+            <Polaroid src = {postImg}></Polaroid>
             <TitleText>{post.title}</TitleText>
         </Wrapper>
     );

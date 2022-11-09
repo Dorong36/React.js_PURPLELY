@@ -7,6 +7,15 @@ import TextInput from "../ui/TextInput";
 import Button from "../ui/Button";
 import data from "../../data.json";
 
+import image0 from "../../img/000.png";
+import image1 from "../../img/001.png";
+import image2 from "../../img/002.png";
+import image3 from "../../img/003.png";
+import image4 from "../../img/004.png";
+import image5 from "../../img/001.png";
+
+const images = [image0, image1, image2, image3, image4, image5]
+
 const Wrapper = styled.div`
     padding: 16px;
     width: calc(100% - 32px);
@@ -18,7 +27,8 @@ const Wrapper = styled.div`
 
 const Container = styled.div`
     width: 100%;
-    max-width: 720px;
+    max-width: 1000px;
+
 
     & > * {
         :not(:last-child){
@@ -29,25 +39,42 @@ const Container = styled.div`
 
 const PostContainer = styled.div`
     padding: 8px 16px;
+    margin-top: 16px;
     border: 1px solid grey;
     border-radius: 8px;
+    background-color: white;
 `;
 
 const TitleText = styled.p`
     font-size: 28px;
     font-weight: 500;
+    color: black;
 `;
 
 const ContentText = styled.p`
-    font-size: 20px;
+    font-size: 15px;
     line-height: 32px;
     white-space: pre-wrap;
+    color: black;
 `;
 
 const CommentLabel = styled.p`
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 500;
+    color: white;
 `;
+
+const ImgContainer = styled.div`
+    padding: 8px 16px;
+    margin-top: 16px;
+    background-color: white;
+`;
+
+const Polaroid = styled.img`
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+`
 
 function PostViewPage(props){
     const navigate = useNavigate();
@@ -63,20 +90,22 @@ function PostViewPage(props){
         <Wrapper>
             <Container>
                 <Button
-                    title = {"뒤로 가기"}
+                    title = {"Back"}
                     onClick = {() => {
                         navigate("/");
                     }}
                 ></Button>
-
                 <PostContainer>
+                    <ImgContainer><Polaroid src={images[post.imgId]}></Polaroid></ImgContainer>
+                    
                     <TitleText>{post.title}</TitleText>
                     <ContentText>{post.content}</ContentText>
                 </PostContainer>
 
-                <CommentLabel>댓글</CommentLabel>
+                <CommentLabel>Comments</CommentLabel>
                 <CommentList comments={post.comments} />
 
+                <br />
                 <TextInput 
                     height = {40}
                     value = {comment}
