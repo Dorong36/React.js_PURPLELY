@@ -6,6 +6,7 @@ import img1 from "../../img/001.png";
 import img2 from "../../img/002.png";
 import img3 from "../../img/003.png";
 import img4 from "../../img/004.png";
+import img5 from "../../img/005.png";
 
 const LayoutBox = styled.div`
     display: flex;
@@ -14,16 +15,13 @@ const LayoutBox = styled.div`
 `;
 
 const ViewWindow = styled.div`
-    // width: calc(100% - 32px);
-    max-width: 1200px;
-    max-height: 600px;
     width: 1200px;
     height: 600px;
     overflow: hidden;
 `;
 
 const Elements = styled.div`
-    width: 6000px;
+    width: 7200px;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -32,16 +30,6 @@ const Elements = styled.div`
         return count? `transform: translateX(-${count * 1200}px)` : null;
     }}
 `;
-
-
-// const Element = styled.div`
-//     width: 1200px;  
-//     height: 600px;
-//     margin: 10px 0;
-//     background-image: url(${props => props.imgUrl});
-//     background-size: cover;
-//     vertical-align: middle;
-// `;
 
 const Element = styled.img`
     max-width: 1200px;  
@@ -53,12 +41,10 @@ const Element = styled.img`
 
 function TitleImg(props){
 
-    // const elementHeight =120;
-    const elementLength = 4;
+    const elementLength = 6;
     const [count, setCount] = useState(0);
     const boolean = useRef(false);
-
-
+    
     useEffect(() => {
         const timer = setInterval(
             () => {
@@ -70,7 +56,7 @@ function TitleImg(props){
                     setCount(0);
                 }
             },
-            10000
+            5000
         );
     
         return () => {
@@ -82,16 +68,12 @@ function TitleImg(props){
         <LayoutBox>
             <ViewWindow>
                 <Elements count={count}>
-                    {/* <Element name="0" imgUrl={img0}></Element>
-                    <Element name="1" imgUrl={img1}></Element>
-                    <Element name="2" imgUrl={img2}></Element>
-                    <Element name="3" imgUrl={img3}></Element>
-                    <Element name="4" imgUrl={img4}></Element> */}
                     <Element name="0" src={img0}></Element>
                     <Element name="1" src={img1}></Element>
                     <Element name="2" src={img2}></Element>
                     <Element name="3" src={img3}></Element>
                     <Element name="4" src={img4}></Element>
+                    <Element name="5" src={img5}></Element>
                 </Elements>
             </ViewWindow>
         </LayoutBox>

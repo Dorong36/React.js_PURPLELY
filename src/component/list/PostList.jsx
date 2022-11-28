@@ -7,57 +7,22 @@ import img1 from "../../img/001.png";
 import img2 from "../../img/002.png";
 import img3 from "../../img/003.png";
 import img4 from "../../img/004.png";
-
-// const Wrapper = styled.div`
-//     width: calc(100% - 32px);
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     justify-content: center;
-
-//     & > * { 
-//         :not(:last-child){
-//             margin-botton: 16px;
-//         }
-//     }
-// `;
-
-// const Container = styled.div`
-//     display: grid;
-//     grid-template-rows: repeat(2, 280px);
-//     grid-template-columns: 1fr 1fr 1fr;
-//     grid-gap: 10px;
-//     margin: 0 auto;
-//     justify-content: center;
-//     padding: 20px;
-//     max-width: 1200px;
-//     background-color: #ffffff;
-//     border-radius: 8px;
-// `;
+import img5 from "../../img/005.png";
 
 const Wrapper = styled.div`
-    display: grid;
-    grid-template-rows: repeat(2, 280px);
-    // grid-template-columns: 380px 380px 380px;
-    grid-template-columns: 1fr 1fr 1fr;
-
-    // testing now
-    // grid-template-columns: repeat(3, minmax(190px 1fr))
-    // grid-auto-columns: 190px;
-
-    grid-gap: 10px;
-    margin: 0 auto;
+    display: flex;
+    align-items: center;
     justify-content: center;
-    padding: 20px;
-    width: calc(100% - 32px);
-    //max-width: 1200px;
+    flex-flow: row wrap;
+
     background-color: #ffffff;
+    gap: 10px;
+    margin: 0 auto;
+    padding: 20px;
     border-radius: 8px;
 `;
 
-
-
-let postImages = [img0, img1, img2, img3, img4, img1];
+let postImages = [img0, img1, img2, img3, img4, img5];
 
 
 function PostList(props) {

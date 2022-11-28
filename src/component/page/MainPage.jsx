@@ -7,21 +7,6 @@ import Button from "../ui/Button";
 import data from "../../data.json";
 import TitleImg from "../TitleImage/TitleImg";
 
-
-
-// const Wrapper = styled.div`
-//     padding: 16px;
-//     width: calc(100% - 32px);
-//     display: grid;
-//     place-items: center;
-
-//     & > * {
-//         :not(:last-child){
-//             margin-bottom: 16px;
-//         }
-//     }
-// `;
-
 const Wrapper = styled.div`
     padding: 16px;
     width: calc(100% - 32px);
@@ -40,7 +25,6 @@ const Container = styled.div`
         }
     }
 `;
-
 
 const ButtonWrapper = styled.div`
     display: flex;
@@ -73,14 +57,7 @@ function MainPage(props) {
                             navigate(`/login`);
                         }}
                     ></Button>
-                    {/* <Button
-                        title = "Join"
-                        onClick = {() =>{
-                            navigate(`/join`);
-                        }}
-                    ></Button> */}
                 </ButtonWrapper>
-                
                 <PostList 
                     posts = {data}
                     onClickItem = {(item) => {

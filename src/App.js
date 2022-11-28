@@ -46,26 +46,6 @@ const Wrapper = styled.div`
   animation: ${gradient} 15s ease infinite;
 `
 
-// const RoutesWrapper = styled.div`
-//   height: 100vh;
-// `
-
-
-// const Wrapper = styled.div`
-//   margin: 0px auto;    #b3a5cf
-//   padding: 30px;
-//   background: white;
-// `
-
-// const Footer = styled.footer`
-//   background-color: white;
-// `
-
-// const Header = styled.div`
-//   display: grid;
-//   justify-content: center;
-//   background: purple;
-// `
 
 const LogoImg = styled.img`
   height: 100px;
@@ -80,7 +60,6 @@ function App(gradient) {
       <ScrollToTop></ScrollToTop>
         <Header></Header>
         <hr></hr>
-        {/* <TitleImg></TitleImg> */}
         <Routes>
           <Route index element={<MainPage/>} />
           <Route path = "post-write" element={<PostWritePage/>} />
@@ -91,9 +70,7 @@ function App(gradient) {
         <hr></hr>
         <Footer></Footer>
       </BrowserRouter>
-      
     </Wrapper>
-    
   );
 }
 

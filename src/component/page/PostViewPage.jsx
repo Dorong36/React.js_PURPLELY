@@ -12,7 +12,7 @@ import image1 from "../../img/001.png";
 import image2 from "../../img/002.png";
 import image3 from "../../img/003.png";
 import image4 from "../../img/004.png";
-import image5 from "../../img/001.png";
+import image5 from "../../img/005.png";
 
 const images = [image0, image1, image2, image3, image4, image5]
 
@@ -28,8 +28,6 @@ const Wrapper = styled.div`
 const Container = styled.div`
     width: 100%;
     max-width: 1000px;
-
-
     & > * {
         :not(:last-child){
             margin-botton: 16px;
@@ -45,25 +43,6 @@ const PostContainer = styled.div`
     background-color: white;
 `;
 
-const TitleText = styled.p`
-    font-size: 28px;
-    font-weight: 500;
-    color: black;
-`;
-
-const ContentText = styled.p`
-    font-size: 15px;
-    line-height: 32px;
-    white-space: pre-wrap;
-    color: black;
-`;
-
-const CommentLabel = styled.p`
-    font-size: 20px;
-    font-weight: 500;
-    color: white;
-`;
-
 const ImgContainer = styled.div`
     padding: 8px 16px;
     margin-top: 16px;
@@ -74,7 +53,31 @@ const Polaroid = styled.img`
     width: 100%;
     height: 100%;
     object-fit: cover;
-`
+`;
+
+const TitleText = styled.p`
+    font-size: 28px;
+    font-weight: 500;
+    color: black;
+    padding: 0px 60px;
+`;
+
+const ContentText = styled.p`
+    font-size: 15px;
+    line-height: 32px;
+    white-space: pre-wrap;
+    color: black;
+    padding: 0px 50px;
+    padding-bottom: 30px;
+`;
+
+const CommentLabel = styled.p`
+    font-size: 20px;
+    font-weight: 500;
+    color: white;
+`;
+
+
 
 function PostViewPage(props){
     const navigate = useNavigate();
@@ -101,11 +104,9 @@ function PostViewPage(props){
                     <TitleText>{post.title}</TitleText>
                     <ContentText>{post.content}</ContentText>
                 </PostContainer>
-
+                <br />
                 <CommentLabel>Comments</CommentLabel>
                 <CommentList comments={post.comments} />
-
-                <br />
                 <TextInput 
                     height = {40}
                     value = {comment}
@@ -113,7 +114,6 @@ function PostViewPage(props){
                         setComment(event.target.value);
                     }}
                 />
-
                 <Button 
                     title = {"댓글 작성하기"}
                     onClick = {() => {
@@ -123,7 +123,6 @@ function PostViewPage(props){
             </Container>
         </Wrapper>
     )
-
 }
 
 export default PostViewPage;
