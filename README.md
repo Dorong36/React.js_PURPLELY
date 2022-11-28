@@ -1,5 +1,5 @@
 Welcome to PURPLELY!
-![squareLogo](https://user-images.githubusercontent.com/101972179/204195818-dfcef4c0-3430-4724-8c04-6a4fa8a8478c.png)
+<img src="https://user-images.githubusercontent.com/101972179/204195818-dfcef4c0-3430-4724-8c04-6a4fa8a8478c.png  width="200" height="200"/>
 
 
  - 본 사이트는 React.js를 중심으로 개발되었습니다. 
